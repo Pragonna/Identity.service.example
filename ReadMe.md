@@ -7,7 +7,7 @@ This solution contains various components and services. For detailed information
 ### 🔐 [Identity Service](src/Services/IdentityService/ReadMe.md)
 User authentication and authorization service
 
-### 🏗️ [Block Building](src/BuildingBlocks/ReadMe.md)
+### 🏗️ [Block Building](src/BuildingBlocks/Readme.md)
 Block creation and management functionality
 
 ## 🚀 Getting Started
