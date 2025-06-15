@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="30" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            animation: float 30s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100px, -100px); }
+        }
+
+        .email-container {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: slideUp 1s ease-out;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 2px);
+            background-size: 40px 40px;
+            animation: drift 25s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-40px, -40px) rotate(360deg); }
+        }
+
+        .email-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            animation: bounce 2s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scale(1); }
+            40% { transform: translateY(-10px) scale(1.05); }
+            60% { transform: translateY(-5px) scale(1.02); }
+        }
+
+        .email-icon svg {
+            width: 50px;
+            height: 50px;
+            fill: white;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 18px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .content {
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-size: 20px;
+            color: #2d3748;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .verification-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 40px 0;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verification-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.15), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .verification-label {
+            font-size: 16px;
+            color: #4a5568;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .verify-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .verify-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .verify-button:hover::before {
+            left: 100%;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.6);
+        }
+
+        .verify-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            animation: checkPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes checkPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .info-box {
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 40px 0;
+            border-left: 5px solid #667eea;
+            text-align: left;
+        }
+
+        .info-icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .info-text {
+            color: #4a5568;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .expiry-notice {
+            background: rgba(245, 101, 101, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 40px 0;
+            border-left: 5px solid #f56565;
+            text-align: left;
+        }
+
+        .expiry-notice h3 {
+            color: #e53e3e;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .expiry-notice p {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 40px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer p {
+            color: #718096;
+            font-size: 15px;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .company-name {
+            color: #667eea;
+            font-weight: 700;
+        }
+
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #667eea;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 700px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 20px;
+                max-width: 90%;
+            }
+
+            .header {
+                padding: 40px 25px;
+            }
+
+            .content {
+                padding: 50px 25px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .welcome-text {
+                font-size: 18px;
+            }
+
+            .verify-button {
+                padding: 16px 32px;
+                font-size: 16px;
+            }
+
+            .verification-section {
+                padding: 35px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="header">
+        <div class="email-icon">
+            <svg viewBox="0 0 24 24">
+                <path d="M12,15C12.81,15 13.5,14.7 14.11,14.11C14.7,13.5 15,12.81 15,12C15,11.19 14.7,10.5 14.11,9.89C13.5,9.3 12.81,9 12,9C11.19,9 10.5,9.3 9.89,9.89C9.3,10.5 9,11.19 9,12C9,12.81 9.3,13.5 9.89,14.11C10.5,14.7 11.19,15 12,15M12,2L14.39,5.42C15.92,7.31 17.68,8.83 19.68,9.96C19.91,10.08 20.14,10.2 20.38,10.32C20.38,10.33 20.38,10.33 20.38,10.34C20.38,10.35 20.38,10.36 20.38,10.37C20.14,10.5 19.91,10.62 19.68,10.74C17.68,11.87 15.92,13.39 14.39,15.28L12,18.7L9.61,15.28C8.08,13.39 6.32,11.87 4.32,10.74C4.09,10.62 3.86,10.5 3.62,10.37C3.62,10.36 3.62,10.35 3.62,10.34C3.62,10.33 3.62,10.33 3.62,10.32C3.86,10.2 4.09,10.08 4.32,9.96C6.32,8.83 8.08,7.31 9.61,5.42L12,2M12,6.5C10.07,6.5 8.5,8.07 8.5,10C8.5,11.93 10.07,13.5 12,13.5C13.93,13.5 15.5,11.93 15.5,10C15.5,8.07 13.93,6.5 12,6.5Z"/>
+            </svg>
+        </div>
+        <h1>Verify Your Email</h1>
+        <p>Just one more step to complete your registration</p>
+    </div>
+
+    <div class="content">
+        <p class="welcome-text">
+            Welcome! Please verify your email address to activate your account and start using our services.
+        </p>
+
+        <div class="verification-section">
+            <div class="verification-label">Email Verification</div>
+            <a href="{{VERIFIED_LINK}}" class="verify-button">
+                    <span class="button-text">
+                        <svg class="check-icon" viewBox="0 0 24 24">
+                            <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
+                        </svg>
+                        Verify Email Address
+                    </span>
+            </a>
+        </div>
+
+        <div class="info-box">
+            <span class="info-icon">ℹ️</span>
+            <span class="info-text">
+                    <strong>What happens next?</strong><br>
+                    After clicking the verification button, you'll be redirected to our platform where your email will be confirmed automatically.
+                </span>
+        </div>
+
+        <div class="expiry-notice">
+            <h3>
+                ⏰ Important Notice
+            </h3>
+            <p>
+                This verification link will expire in 24 hours for security reasons.
+                If the link expires, you can request a new verification email from your account settings.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            This email was sent automatically as part of your account registration.<br>
+            If you didn't create an account with us, please ignore this email.<br><br>
+            Need help? Contact our <span class="company-name">Support Team</span> anytime.
+        </p>
+
+        <div class="social-links">
+            <a href="#" class="social-link">📧</a>
+            <a href="#" class="social-link">💬</a>
+            <a href="#" class="social-link">📞</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
