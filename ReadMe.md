@@ -4,10 +4,10 @@ This solution contains various components and services. For detailed information
 
 ## 📚 Component Documentation
 
-### 🔐 [Identity Service](src/services/identityService/README.md)
+### 🔐 [Identity Service](src/Services/IdentityService/ReadMe.md)
 User authentication and authorization service
 
-### 🏗️ [Block Building](src/BlockBuilding/README.md)
+### 🏗️ [Block Building](src/BuildingBlocks/ReadMe.md)
 Block creation and management functionality
 
 ## 🚀 Getting Started
