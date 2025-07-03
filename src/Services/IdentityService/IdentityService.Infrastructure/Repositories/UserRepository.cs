@@ -33,7 +33,8 @@ public class UserRepository : BaseRepository<User, UserDbContext>, IUserReposito
     public async Task<UserOperationClaim> AddUserOperationClaimWhenInsertUser(User user,
         OperationClaim operationClaim = null)
     {
-        if (operationClaim == null) operationClaim = new OperationClaim();
+        if (operationClaim == null)
+            operationClaim = _dbContext.OperationClaims.FirstOrDefault(o => o.Role == Role.User);
         var userOperationClaim = new UserOperationClaim(user.Id, operationClaim.Id);
         _dbContext.Entry(userOperationClaim).State = EntityState.Added;
         return userOperationClaim;
