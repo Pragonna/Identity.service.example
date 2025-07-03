@@ -256,5 +256,3 @@ For support and questions:
 - **v1.2.0** - Enhanced security with IP tracking and improved token management
 
 ---
-
-**Made with ❤️ by the Identity Service Team**
