@@ -9,4 +9,6 @@ public interface IInMemoryVerificationService
     string GenerateAndStoreVerificationLink(User user, string resetToken);
     User? ValidateResetToken(string email, string resetToken);
     User ValidateOtp(string userEmail, string otpCode);
+    Task MarkResetTokenAsValidatedAsync(string email, string token);
+    Task<bool> IsResetTokenValidatedAsync(string email, string token);
 }

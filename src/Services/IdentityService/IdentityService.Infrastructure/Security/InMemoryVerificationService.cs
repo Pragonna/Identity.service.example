@@ -25,7 +25,7 @@ public class InMemoryVerificationService(IMemoryCache memoryCache) : IInMemoryVe
     {
         var encodedToken = Uri.EscapeDataString(resetToken);
         var verificationLink =
-            $"https://localhost:7022/api/auth/validate-resetToken?id={user.Id}&resetToken={encodedToken}";
+            $"https://localhost:7022/api/auth/validate-resetToken?email={user.Email}&resetToken={encodedToken}";
         var cacheEntryOptions = new MemoryCacheEntryOptions
         {
             AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
@@ -36,10 +36,11 @@ public class InMemoryVerificationService(IMemoryCache memoryCache) : IInMemoryVe
 
     public User? ValidateResetToken(string email, string resetToken)
     {
+        var decodedToken = Uri.UnescapeDataString(resetToken);
         if (memoryCache.TryGetValue<(string _resetToken, User user)>(email + "_resetToken", out var entry)) ;
         var (_resetToken, user) = entry;
 
-        if (_resetToken != resetToken) throw new InvalidResetTokenException();
+        if (_resetToken != decodedToken) throw new InvalidResetTokenException();
         memoryCache.Remove(user.Email + "_resetToken");
 
         return user;
@@ -58,4 +59,19 @@ public class InMemoryVerificationService(IMemoryCache memoryCache) : IInMemoryVe
         memoryCache.Remove(email);
         return user;
     }
+    public Task MarkResetTokenAsValidatedAsync(string email, string token)
+    {
+        var cacheKey = GetResetTokenCacheKey(email, token);
+        memoryCache.Set(cacheKey, true, TimeSpan.FromMinutes(15));
+        return Task.CompletedTask;
+    }
+
+    public Task<bool> IsResetTokenValidatedAsync(string email, string token)
+    {
+        var cacheKey = GetResetTokenCacheKey(email, token);
+        return Task.FromResult(memoryCache.TryGetValue(cacheKey, out _));
+    }
+
+    private string GetResetTokenCacheKey(string email, string token) =>
+        $"reset_token_validated:{email}:{token}";
 }

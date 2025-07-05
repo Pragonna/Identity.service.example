@@ -25,7 +25,7 @@ public class AuthController(
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] UserRegisterDto userRegisterDto)
     {
-        var tokenResponseDto = await userAuthManager.RegisterAsync(userRegisterDto,GetIpAddress());
+        var tokenResponseDto = await userAuthManager.RegisterAsync(userRegisterDto, GetIpAddress());
         return Ok(tokenResponseDto);
     }
 
@@ -66,16 +66,23 @@ public class AuthController(
     }
 
     [HttpGet("validate-resetToken")]
-    public async Task<IActionResult> ValidateResetToken(string id, string resetToken)
+    public async Task<IActionResult> ValidateResetToken(string email, string resetToken)
     {
-        var userEmail = await userAuthManager.ValidateVerificationLinkAsync(id, resetToken);
-        return Ok(userEmail);
+        var userEmail = await userAuthManager.ValidateVerificationLinkAsync(email, resetToken);
+        await userAuthManager.MarkResetTokenAsValidatedAsync(email, resetToken);
+        return Ok(new
+        {
+            email,
+            resetToken
+        });
     }
 
     [HttpPost("reset-password")]
     public async Task<IActionResult> ResetPassword(
         [FromBody] RequestResetPasswordDto request)
     {
+        var isSuccess = await userAuthManager.IsResetTokenValidatedAsync(request.Email, request.ResetToken);
+        if (!isSuccess) return BadRequest("validation is invalid");
         await userAuthManager.ResetPasswordAsync(request.Email, request.NewPassword);
         return Ok("Password has been changed");
     }

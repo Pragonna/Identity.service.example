@@ -16,6 +16,16 @@ public class UserAuthManager(
     IUserUnitOfWork uOw,
     IEventBus eventBus) : IUserAuthManager
 {
+    public async Task MarkResetTokenAsValidatedAsync(string email, string token)
+    {
+        await inMemoryVerificationService.MarkResetTokenAsValidatedAsync(email, token);
+    }
+
+    public async Task<bool> IsResetTokenValidatedAsync(string email, string token)
+    {
+        return await inMemoryVerificationService.IsResetTokenValidatedAsync(email, token);
+    }
+
     public async Task<TokenResponseDto> RegisterAsync(UserRegisterDto userRegisterDto, string ipAddress)
     {
         var users = await userRepository.GetAsync(u => u.Email == userRegisterDto.Email);
@@ -46,9 +56,10 @@ public class UserAuthManager(
     public async Task LoginAsync(UserLoginDto userLoginDto)
     {
         var user = await userRepository.FirstOrDefaultAsync(u => u.Email == userLoginDto.Email);
+        if (user == null) throw new UserDoesNotExistsException();
         var passwordIsCorrect =
             HashingHelper.VerifyHashPassword(userLoginDto.Password, user.PasswordHash, user.PasswordSalt);
-        if (user == null && !passwordIsCorrect) throw new UserDoesNotExistsException();
+        if (!passwordIsCorrect) throw new UserDoesNotExistsException();
         var otp = inMemoryVerificationService.GenerateAndStoreOtp(user);
         await eventBus.Publish(
             new SendOtpVerificationEmailIntegrationEvent(user.Email,
