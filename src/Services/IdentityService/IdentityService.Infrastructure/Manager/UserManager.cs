@@ -41,8 +41,9 @@ public class UserManager(IUserRepository userRepository, IUserUnitOfWork userUni
     public async Task<User> DeleteUser(string email)
     {
         var user = await GetUserByEmail(email);
-        if (user == null) throw new UserDoesNotExistsException();
+        if (user == null) throw new UserNotFoundException();
         var deletedUser = await userRepository.DeleteEntityAsync(user);
+        await userUnitOfWork.CommitAsync();
         return deletedUser;
     }
 }

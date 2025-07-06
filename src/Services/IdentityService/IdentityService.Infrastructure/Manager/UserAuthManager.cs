@@ -100,10 +100,10 @@ public class UserAuthManager(
         await uOw.CommitAsync();
     }
 
-    public async Task<TokenResponseDto> RefreshTokenAsync(string email)
+    public async Task<TokenResponseDto> RefreshTokenAsync(string token, string email)
     {
-        var user = await userRepository.FindUserByEmailAsync(email);
-        var refreshToken = await userRepository.GetRefreshToken(user.Id);
+        var user = await userRepository.FirstOrDefaultAsync(u => u.Email == email);
+        var refreshToken = await userRepository.GetRefreshToken(token);
         if (refreshToken.IsRevoked && refreshToken.ExpireAt > DateTime.UtcNow) throw new SessionExpiredException();
 
         var tokens = await tokenService.GenerateNewTokensAsync(user, userRepository.GetOperationClaimsByUser(user.Id));

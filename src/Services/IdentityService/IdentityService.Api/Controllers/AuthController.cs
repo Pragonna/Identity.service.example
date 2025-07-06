@@ -41,13 +41,35 @@ public class AuthController(
         [FromBody] RequestValidateOtpDto request)
     {
         var tokenResponseDto = await userAuthManager.ValidateOtp(request.Email, request.Otp, GetIpAddress());
+        var cookieOptions = new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTimeOffset.UtcNow.AddDays(1)
+        };
+        Response.Cookies.Append("email", request.Email, cookieOptions);
+        Response.Cookies.Append("refreshToken", tokenResponseDto.RefreshToken, cookieOptions);
+        
         return Ok(tokenResponseDto);
     }
 
     [HttpGet("refresh-token")]
-    public async Task<IActionResult> RefreshToken(string email)
+    public async Task<IActionResult> RefreshToken()
     {
-        var tokenResponseDto = await userAuthManager.RefreshTokenAsync(email);
+        var refreshToken = Request.Cookies["refreshToken"];
+        var emailCookie = Request.Cookies["email"];
+        if (string.IsNullOrEmpty(refreshToken)&&string.IsNullOrEmpty(emailCookie)) return BadRequest("refresh token or email cookie is missing");
+        
+        var tokenResponseDto = await userAuthManager.RefreshTokenAsync(refreshToken, emailCookie);
+        Response.Cookies.Delete("refreshToken");
+        Response.Cookies.Append("refreshToken", tokenResponseDto.RefreshToken, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+            Expires = DateTimeOffset.UtcNow.AddDays(1)
+        });
         return Ok(tokenResponseDto);
     }
 

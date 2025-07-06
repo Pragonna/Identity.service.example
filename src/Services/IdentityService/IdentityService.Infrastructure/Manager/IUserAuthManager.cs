@@ -10,7 +10,7 @@ public interface IUserAuthManager
     Task<TokenResponseDto> RegisterAsync(UserRegisterDto userRegisterDto,string ipAddress);
     Task LoginAsync(UserLoginDto userLoginDto);
     Task<TokenResponseDto> ValidateOtp(string email, string otp,string ipAddress);
-    Task<TokenResponseDto> RefreshTokenAsync(string email);
+    Task<TokenResponseDto> RefreshTokenAsync(string refreshToken,string email);
     Task ForgotPasswordAttemptAsync(string email);
     Task<string> ValidateVerificationLinkAsync(string email, string resetToken);
     Task ResetPasswordAsync(string email, string newPassword);
