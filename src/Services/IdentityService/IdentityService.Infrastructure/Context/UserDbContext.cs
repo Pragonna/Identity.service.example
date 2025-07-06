@@ -32,7 +32,8 @@ public class UserDbContext : DbContext
         {
             var entity = (BaseUserEntity)entry.Entity;
             if (entry.State == EntityState.Added) entity.CreatedDate = DateTime.UtcNow;
-            if (entry.State == EntityState.Modified) entity.ModifiedDate = DateTime.UtcNow;
+            if (entry.State == EntityState.Modified)
+                entity.ModifiedDate = DateTime.UtcNow;
         }
 
         return base.SaveChangesAsync(cancellationToken);

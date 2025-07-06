@@ -16,7 +16,10 @@ public class UserRegisterValidator : AbstractValidator<UserRegisterDto>
             .NotEmpty()
             .MinimumLength(8)
             .MaximumLength(32)
-            .WithMessage("Please enter a valid password.");
+            .WithMessage("Password must be between 8 and 32 characters.")
+            .Matches(@"[A-Z]").WithMessage("Password must contain at least one uppercase letter.")
+            .Matches(@"[0-9]").WithMessage("Password must contain at least one digit.")
+            .Matches(@"[+\-@!#$%^&*(),.?""{}|<>]").WithMessage("Password must contain at least one special character.");
 
         RuleFor(x => x.FirstName)
             .NotEmpty().WithMessage("Please enter a first name.");
