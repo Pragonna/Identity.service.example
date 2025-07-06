@@ -64,7 +64,7 @@ public class UserRepository : BaseRepository<User, UserDbContext>, IUserReposito
         return refreshToken;
     }
 
-    public async Task<bool> RemoveRefreshToken(string refreshToken)
+    public async Task<bool> RemoveRefreshToken(RefreshToken refreshToken)
     {
         _dbContext.Entry(refreshToken).State = EntityState.Deleted;
         return true;

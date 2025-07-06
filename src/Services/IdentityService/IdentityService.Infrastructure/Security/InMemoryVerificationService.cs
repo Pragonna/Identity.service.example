@@ -65,7 +65,6 @@ public class InMemoryVerificationService(IMemoryCache memoryCache) : IInMemoryVe
         memoryCache.Set(cacheKey, true, TimeSpan.FromMinutes(15));
         return Task.CompletedTask;
     }
-
     public Task<bool> IsResetTokenValidatedAsync(string email, string token)
     {
         var cacheKey = GetResetTokenCacheKey(email, token);

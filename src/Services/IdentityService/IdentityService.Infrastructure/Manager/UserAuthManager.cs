@@ -92,7 +92,7 @@ public class UserAuthManager(
     {
         var user = await userRepository.FindUserByEmailAsync(email);
         var refreshToken = await userRepository.GetRefreshToken(user.Id);
-        var isDeleted = await userRepository.RemoveRefreshToken(refreshToken.Token);
+        var isDeleted = await userRepository.RemoveRefreshToken(refreshToken);
         if (!isDeleted) throw new ArgumentException("Refresh token not found");
 
         user.IsActive = false;
@@ -104,11 +104,13 @@ public class UserAuthManager(
     {
         var user = await userRepository.FirstOrDefaultAsync(u => u.Email == email);
         var refreshToken = await userRepository.GetRefreshToken(token);
+        if (refreshToken is null) throw new RefreshTokenNotFoundException();
         if (refreshToken.IsRevoked && refreshToken.ExpireAt > DateTime.UtcNow) throw new SessionExpiredException();
 
         var tokens = await tokenService.GenerateNewTokensAsync(user, userRepository.GetOperationClaimsByUser(user.Id));
 
         refreshToken = await userRepository.UpdateRefreshToken(refreshToken.UserId);
+        await uOw.CommitAsync();
         return new TokenResponseDto()
         {
             AccessToken = tokens.accessToken.Token,

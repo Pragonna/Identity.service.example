@@ -11,7 +11,7 @@ public class User : BaseUserEntity
     }
 
     public User(string email, string username, string firstName, string lastName, DateTime dateOfBirth, Gender gender,
-        byte[] passwordSalt, byte[] passwordHash, Image? image = null) : this()
+        byte[] passwordSalt, byte[] passwordHash) : this()
     {
         Email = email;
         Username = username;
@@ -21,7 +21,6 @@ public class User : BaseUserEntity
         Gender = gender;
         PasswordSalt = passwordSalt;
         PasswordHash = passwordHash;
-        Image = image;
     }
 
     public string Email { get; set; }
@@ -32,7 +31,6 @@ public class User : BaseUserEntity
     public Gender Gender { get; set; }
     public byte[] PasswordSalt { get; set; }
     public byte[] PasswordHash { get; set; }
-    public Image? Image { get; set; }
     public bool IsActive { get; set; } = false;
     public RefreshToken RefreshToken { get; set; }
     public ICollection<UserOperationClaim> UserOperationClaim { get; set; }

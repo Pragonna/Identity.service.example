@@ -19,11 +19,6 @@ public class UserEntityTypeConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.Gender).IsRequired();
         builder.Property(x => x.PasswordSalt).IsRequired();
         builder.Property(x => x.PasswordHash).IsRequired();
-        builder
-            .HasOne(x => x.Image)
-            .WithOne(x => x.User)
-            .HasForeignKey<Image>(x => x.Id)
-            .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(x => x.RefreshToken)
             .WithOne(x => x.User)

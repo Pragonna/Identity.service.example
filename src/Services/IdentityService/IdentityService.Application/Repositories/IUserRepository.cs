@@ -15,7 +15,7 @@ public interface IUserRepository : IWriteRepository<User>, IReadRespository<User
     List<OperationClaim> GetOperationClaimsByUser(Guid userId);
     Task AddOperationClaim(OperationClaim operationClaim);
     Task<RefreshToken> AddRefreshToken(RefreshToken refreshToken);
-    Task<bool> RemoveRefreshToken(string refreshToken);
+    Task<bool> RemoveRefreshToken(RefreshToken refreshToken);
     Task<RefreshToken> GetRefreshToken(string token);
     Task<RefreshToken> GetRefreshToken(Guid userId);
     Task<RefreshToken> UpdateRefreshToken(Guid userId, bool isRevoked = false);
