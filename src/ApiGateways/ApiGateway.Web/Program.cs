@@ -1,10 +1,22 @@
 using System.Text;
+using ApiGateway.Web;
+using ApiGateway.Web.Logging;
+using ApiGateway.Web.Middlewares;
 using ApiGateway.Web.Models;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+//Logging
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/gateway-log-.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
@@ -27,10 +39,11 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
-builder.Services.AddOcelot();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddApiGatewayMiddleware();
+builder.Services.AddOcelot().AddDelegatingHandler<CustomLoggingHandler>();
 
 var app = builder.Build();
 
@@ -45,6 +58,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+app.UseMiddleware<ExceptionMiddleware>(); 
+app.UseMiddleware<RequestLoggingMiddleware>();
 
 await app.UseOcelot();
 app.MapControllers();
