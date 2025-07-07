@@ -13,6 +13,7 @@
 *.sln.docstates
 
 # key-vault
+.config.env
 .DS_Store
 
 # Build results
