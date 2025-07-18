@@ -2,6 +2,6 @@ namespace IdentityService.Domain.Enums;
 
 public enum Gender
 {
-    Male,
-    Famale
+    Male = 0,
+    Famale = 1
 }

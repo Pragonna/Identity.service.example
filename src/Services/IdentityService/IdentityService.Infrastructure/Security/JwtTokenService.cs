@@ -65,6 +65,8 @@ public class JwtTokenService(IOptions<TokenOptions> options) : ITokenService
         claims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
         claims.Add(new Claim(ClaimTypes.Email, user.Email));
         claims.Add(new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"));
+        claims.Add(new Claim(ClaimTypes.Gender, user.Gender.ToString()));
+        claims.Add(new Claim(ClaimTypes.DateOfBirth, user.DateOfBirth.ToString()));
 
         operationClaims
             .Select(c => c.Role)
