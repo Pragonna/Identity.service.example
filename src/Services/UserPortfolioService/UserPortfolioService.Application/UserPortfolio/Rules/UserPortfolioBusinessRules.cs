@@ -9,11 +9,10 @@ namespace UserPortfolioService.UserPortfolio.Rules;
 
 public class UserPortfolioBusinessRules(IUserPortfolioRepository userPortfolioRepositoryRepository)
 {
-    public async Task<bool> UserPortfolioCannotDuplicatedWhenInsert(string userId)
+    public async Task<UserPortfolioEntity> UserPortfolioCannotDuplicatedWhenInsert(string userId)
     {
         var user = await userPortfolioRepositoryRepository.GetUserPortfolioWithIncludesByUserId(userId);
-        if (user != null) return true;
-        return false;
+        return user;
     }
 
     public async Task<UserPortfolioEntity> CryptoWalletCannotDuplicatedWhenInsertOrUpdated(string userId,

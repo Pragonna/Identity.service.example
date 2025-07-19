@@ -11,7 +11,6 @@ public abstract class CommandHandler<TRequest, TResponse>(
     where TRequest : ICommand<TResponse>
     where TResponse : class, new()
 {
-
     public async Task<Result<TResponse, Error>> Handle(TRequest request, CancellationToken cancellationToken)
     {
         var response = await ExecuteAsync((TRequest)request, cancellationToken);
@@ -27,7 +26,9 @@ public abstract class CommandHandler<TRequest, TResponse>(
 
         return response;
     }
+
     public abstract Task<Result<TResponse, Error>> ExecuteAsync(TRequest request, CancellationToken cancellationToken);
+
     private async Task DispatchEventAsync(Result<TResponse, Error> result, CancellationToken cancellationToken)
     {
         if (eventBus is null) throw new ArgumentNullException(nameof(eventBus));
@@ -37,5 +38,4 @@ public abstract class CommandHandler<TRequest, TResponse>(
             await eventBus.Publish(@event);
         }
     }
-
 }
