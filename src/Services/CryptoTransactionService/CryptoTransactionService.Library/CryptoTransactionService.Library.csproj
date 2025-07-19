@@ -6,4 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\BuildingBlocks\EventBus.Base\EventBus.Base.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Nethereum.Signer" Version="5.0.0" />
+      <PackageReference Include="Nethereum.Signer.Ledger" Version="5.0.0" />
+    </ItemGroup>
+
 </Project>
