@@ -4,7 +4,6 @@ using Shared.DataAccess.Commands;
 using Shared.DataAccess.Common;
 using UserPortfolioService.Application.Repositories;
 using UserPortfolioService.Domain.Entities;
-using UserPortfolioService.Domain.UserPortfolioAggregate;
 using UserPortfolioService.UserPortfolio.Commands.Command;
 using UserPortfolioService.UserPortfolio.Dtos;
 using UserPortfolioService.UserPortfolio.Rules;
@@ -23,14 +22,10 @@ public class AddTwitterCommandHandler(
         var userPortfolioEntity = await
             rules.TwitterCannotDuplicatedWhenInsertOrUpdated(request.userId, request.twitterDto.TwitterHandle);
 
-        var twitter = Twitter.Create(request.twitterDto.TwitterHandle, request.twitterDto.TwitterUserId,
-            request.twitterDto.ProfileImageUrl, request.twitterDto.DisplayName, request.twitterDto.IsVerified,
-            request.twitterDto.IsConnected);
+        var twitter = mapper.Map<TwitterEntity>(request.twitterDto);
 
-        var userPortfolio = mapper.Map<Domain.UserPortfolioAggregate.UserPortfolio>(userPortfolioEntity);
-        userPortfolio.AddTwitter(twitter);
-        userPortfolioEntity = mapper.Map<UserPortfolioEntity>(userPortfolio);
-        await userPortfolioRepository.ModifyEntityAsync(userPortfolioEntity);
+        userPortfolioEntity.TwitterEntity = twitter;
+        await userPortfolioRepository.AddTwitterUserPortfolio(userPortfolioEntity);
         var userPortfolioDto = mapper.Map<UserPortfolioDto>(userPortfolioEntity);
 
         return Result<UserPortfolioDto, Error>.Success(userPortfolioDto);

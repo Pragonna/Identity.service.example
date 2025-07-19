@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore.Query;
 using Shared.DataAccess.Repositories;
 using UserPortfolioService.Application.Repositories;
 using UserPortfolioService.Domain.Entities;
-using UserPortfolioService.Domain.UserPortfolioAggregate;
 using UserPortfolioService.Infrastructure.Persistence.Context;
+using UserPortfolioService.UserPortfolio.Commands.Command;
 
 namespace UserPortfolioService.Infrastructure.Persistence.Repositories;
 
@@ -18,6 +18,24 @@ public class UserPortfolioRepository : BaseRepository<UserPortfolioEntity, UserP
         _context = context;
     }
 
+    public async Task<UserPortfolioEntity> AddCryptoWalletUserPortfolio(UserPortfolioEntity userPortfolio)
+    {
+        _context.Entry(userPortfolio.CryptoWallets.First()).State = EntityState.Added;
+        return await ModifyEntityAsync(userPortfolio);
+    }
+
+    public async Task<UserPortfolioEntity> AddTelegramUserPortfolio(UserPortfolioEntity userPortfolio)
+    {
+        _context.Entry(userPortfolio.TelegramEntity).State = EntityState.Added;
+        return await ModifyEntityAsync(userPortfolio);
+    }
+
+    public async Task<UserPortfolioEntity> AddTwitterUserPortfolio(UserPortfolioEntity userPortfolio)
+    {
+        _context.Entry(userPortfolio.TwitterEntity).State = EntityState.Added;
+        return await ModifyEntityAsync(userPortfolio);
+    }
+
     public async Task<UserPortfolioEntity> GetUserPortfolioWithIncludesByEmail(string email)
     {
         return await _context.UserPortfolios.Where(p => p.Email == email)
@@ -27,6 +45,7 @@ public class UserPortfolioRepository : BaseRepository<UserPortfolioEntity, UserP
             .Include(u => u.Image)?
             .FirstOrDefaultAsync();
     }
+
     public async Task<UserPortfolioEntity> GetUserPortfolioWithIncludesByUserId(string userId)
     {
         return await _context.UserPortfolios.Where(p => p.UserId == userId)
@@ -36,39 +55,25 @@ public class UserPortfolioRepository : BaseRepository<UserPortfolioEntity, UserP
             .Include(u => u.Image)?
             .FirstOrDefaultAsync();
     }
-    //
-    // public async Task<CryptoWallet> RemoveCryptoWallet(CryptoWallet cryptoWallet)
-    // {
-    //     _context.Entry(cryptoWallet).State = EntityState.Deleted;
-    //     return cryptoWallet;
-    // }
-    //
-    // public async Task<Telegram> RemoveTelegram(Telegram telegram)
-    // {
-    //     _context.Entry(telegram).State = EntityState.Deleted;
-    //     return telegram;
-    // }
-    //
-    // public async Task<Twitter> RemoveTwitter(Twitter twitter)
-    // {
-    //     _context.Entry(twitter).State = EntityState.Deleted;
-    //     return twitter;
-    // }
-    // public async Task<CryptoWallet> UpdateCryptoWallet(CryptoWallet cryptoWallet)
-    // {
-    //     _context.Entry(cryptoWallet).State = EntityState.Modified;
-    //     return cryptoWallet;
-    // }
-    //
-    // public async Task<Telegram> UpdateTelegram(Telegram telegram)
-    // {
-    //     _context.Entry(telegram).State = EntityState.Modified;
-    //     return telegram;
-    // }
-    //
-    // public async Task<Twitter> UpdateTwitter(Twitter twitter)
-    // {
-    //     _context.Entry(twitter).State = EntityState.Modified;
-    //     return twitter;
-    // }
+
+    public async Task<UserPortfolioEntity> RemoveCryptoWalletUserPortfolio(UserPortfolioEntity
+        userPortfolio)
+    {
+        _context.Entry(userPortfolio.CryptoWallets.First()).State = EntityState.Deleted;
+        return await ModifyEntityAsync(userPortfolio);
+    } 
+    public async Task<UserPortfolioEntity> RemoveTelegramUserPortfolio(UserPortfolioEntity
+        userPortfolio)
+    {
+        _context.Entry(userPortfolio.TelegramEntity).State = EntityState.Deleted;
+        return await ModifyEntityAsync(userPortfolio);
+    }
+    
+    public async Task<UserPortfolioEntity> RemoveTwitterUserPortfolio(UserPortfolioEntity
+        userPortfolio)
+    {
+        _context.Entry(userPortfolio.TwitterEntity).State = EntityState.Deleted;
+        return await ModifyEntityAsync(userPortfolio);
+    }
+   
 }

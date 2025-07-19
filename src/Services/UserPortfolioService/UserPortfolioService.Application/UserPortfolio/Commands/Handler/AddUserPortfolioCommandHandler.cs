@@ -19,13 +19,10 @@ public class AddUserPortfolioCommandHandler(
     public override async Task<Result<UserPortfolioDto, Error>> ExecuteAsync(AddUserPortfolioCommand request,
         CancellationToken cancellationToken)
     {
-        await rules.UserPortfolioCannotDuplicatedWhenInsert(request.userId);
-        var userPortfolio = Domain.UserPortfolioAggregate.UserPortfolio.Create(request.userId, request.firstName,
-            request.lastName,
-            request.gender, request.dateOfBirth, request.email);
+        var isExists = await rules.UserPortfolioCannotDuplicatedWhenInsert(request.userId);
+        var userPortfolioEntity = mapper.Map<UserPortfolioEntity>(request);
 
-        var userPortfolioEntity = mapper.Map<UserPortfolioEntity>(userPortfolio);
-        userPortfolioEntity = await userPortfolioRepository.AddEntityAsync(userPortfolioEntity);
+        if (!isExists) userPortfolioEntity = await userPortfolioRepository.AddEntityAsync(userPortfolioEntity);
 
         var userPortfolioDto = mapper.Map<UserPortfolioDto>(userPortfolioEntity);
         return Result<UserPortfolioDto, Error>.Success(userPortfolioDto);

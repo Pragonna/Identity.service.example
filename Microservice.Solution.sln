@@ -53,10 +53,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserPortfolioService.Infras
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserPortfolioService.Api", "src\Services\UserPortfolioService\UserPortfolioService.Api\UserPortfolioService.Api.csproj", "{E3838EDD-3AE4-40AE-B7E6-B7918DF76010}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserPortfolioUnitTest", "UserPortfolioUnitTest", "{81773EF3-8A50-4DE5-AAB6-A80B139B1B6A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserPortfolio.UnitTest", "test\UserPortfolioUnitTest\UserPortfolio.UnitTest\UserPortfolio.UnitTest.csproj", "{3A251748-2417-4117-B703-DC6CC7E2331E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,8 +82,6 @@ Global
 		{90F09957-9100-42E8-8537-B5A8780ECAC1} = {ECB41524-F42E-43F7-B45B-7E4C038F8169}
 		{AE8CF594-E03C-4B16-BC0E-FC4EF5499F29} = {ECB41524-F42E-43F7-B45B-7E4C038F8169}
 		{E3838EDD-3AE4-40AE-B7E6-B7918DF76010} = {ECB41524-F42E-43F7-B45B-7E4C038F8169}
-		{81773EF3-8A50-4DE5-AAB6-A80B139B1B6A} = {AEB824C2-3818-47D7-9AB9-10F85FF4FFB4}
-		{3A251748-2417-4117-B703-DC6CC7E2331E} = {81773EF3-8A50-4DE5-AAB6-A80B139B1B6A}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{63F32E5E-CD5B-4D7F-B922-49ADE8699DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -150,9 +144,5 @@ Global
 		{E3838EDD-3AE4-40AE-B7E6-B7918DF76010}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3838EDD-3AE4-40AE-B7E6-B7918DF76010}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3838EDD-3AE4-40AE-B7E6-B7918DF76010}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A251748-2417-4117-B703-DC6CC7E2331E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A251748-2417-4117-B703-DC6CC7E2331E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A251748-2417-4117-B703-DC6CC7E2331E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A251748-2417-4117-B703-DC6CC7E2331E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

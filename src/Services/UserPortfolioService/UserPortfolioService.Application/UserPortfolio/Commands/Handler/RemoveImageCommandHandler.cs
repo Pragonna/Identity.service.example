@@ -20,12 +20,10 @@ public class RemoveImageCommandHandler(
     {
         var userPortfolioEntity = await repository.GetUserPortfolioWithIncludesByUserId(request.userId);
         userPortfolioEntity.EnsureNotNull();
-        var userPortfolio = mapper.Map<Domain.UserPortfolioAggregate.UserPortfolio>(userPortfolioEntity);
-        userPortfolio.RemoveImage();
-        userPortfolioEntity = mapper.Map<UserPortfolioEntity>(userPortfolio);
+        userPortfolioEntity.Image = null;
         await repository.ModifyEntityAsync(userPortfolioEntity);
         var userPortFolioDto = mapper.Map<UserPortfolioDto>(userPortfolioEntity);
-
+        
         return Result<UserPortfolioDto, Error>.Success(userPortFolioDto);
     }
 }

@@ -1,6 +1,5 @@
 using Shared.DataAccess.Repositories;
 using UserPortfolioService.Domain.Entities;
-using UserPortfolioService.Domain.UserPortfolioAggregate;
 
 namespace UserPortfolioService.Application.Repositories;
 
@@ -8,10 +7,10 @@ public interface IUserPortfolioRepository : IWriteRepository<UserPortfolioEntity
 {
     Task<UserPortfolioEntity> GetUserPortfolioWithIncludesByEmail(string email);
     Task<UserPortfolioEntity> GetUserPortfolioWithIncludesByUserId(string userId);
-    // Task<CryptoWallet> RemoveCryptoWallet(CryptoWallet cryptoWallet);
-    // Task<Telegram> RemoveTelegram(Telegram telegram);
-    // Task<Twitter> RemoveTwitter(Twitter twitter);
-    // Task<CryptoWallet> UpdateCryptoWallet(CryptoWallet cryptoWallet);
-    // Task<Telegram> UpdateTelegram(Telegram telegram);
-    // Task<Twitter> UpdateTwitter(Twitter twitter);
+    Task<UserPortfolioEntity> AddCryptoWalletUserPortfolio(UserPortfolioEntity userPortfolio);
+    Task<UserPortfolioEntity> AddTelegramUserPortfolio(UserPortfolioEntity userPortfolio);
+    Task<UserPortfolioEntity> AddTwitterUserPortfolio(UserPortfolioEntity userPortfolio);
+    Task<UserPortfolioEntity> RemoveCryptoWalletUserPortfolio(UserPortfolioEntity userPortfolio);
+    Task<UserPortfolioEntity> RemoveTelegramUserPortfolio(UserPortfolioEntity userPortfolio);
+    Task<UserPortfolioEntity> RemoveTwitterUserPortfolio(UserPortfolioEntity userPortfolio);
 }

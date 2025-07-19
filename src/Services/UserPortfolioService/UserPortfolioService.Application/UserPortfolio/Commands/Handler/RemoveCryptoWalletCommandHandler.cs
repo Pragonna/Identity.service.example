@@ -6,7 +6,6 @@ using Shared.DataAccess.Repositories;
 using UserPortfolioService.Application.Extensions;
 using UserPortfolioService.Application.Repositories;
 using UserPortfolioService.Domain.Entities;
-using UserPortfolioService.Domain.UserPortfolioAggregate;
 using UserPortfolioService.UserPortfolio.Commands.Command;
 using UserPortfolioService.UserPortfolio.Dtos;
 
@@ -22,11 +21,9 @@ public class RemoveCryptoWalletCommandHandler(
     {
         var userPortfolioEntity = await repository.GetUserPortfolioWithIncludesByUserId(request.userId);
         userPortfolioEntity.EnsureNotNull();
-        var cryptoWallet = mapper.Map<CryptoWallet>(request.cryptoWalletDto);
-        var userPortfolio = mapper.Map<Domain.UserPortfolioAggregate.UserPortfolio>(userPortfolioEntity);
-        userPortfolio.RemoveCryptoWallet(cryptoWallet);
-        userPortfolioEntity = mapper.Map<UserPortfolioEntity>(userPortfolio);
-        await repository.ModifyEntityAsync(userPortfolioEntity);
+        var cryptoWallet = mapper.Map<CryptoWalletEntity>(request.cryptoWalletDto);
+        userPortfolioEntity.CryptoWallets.Remove(cryptoWallet);
+        await repository.RemoveCryptoWalletUserPortfolio(userPortfolioEntity);
         var responseDto = mapper.Map<UserPortfolioDto>(userPortfolioEntity);
         return Result<UserPortfolioDto, Error>.Success(responseDto);
     }

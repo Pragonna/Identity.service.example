@@ -21,9 +21,7 @@ public class AddImageCommandHandler(
     {
         var userPortfolioEntity = await repository.GetUserPortfolioWithIncludesByUserId(request.userId);
         userPortfolioEntity.EnsureNotNull();
-        var userPortfolio = mapper.Map<Domain.UserPortfolioAggregate.UserPortfolio>(userPortfolioEntity);
-        userPortfolio.AddImage(request.image);
-        userPortfolioEntity = mapper.Map<UserPortfolioEntity>(userPortfolio);
+        userPortfolioEntity.Image = request.image;
         var response = await repository.ModifyEntityAsync(userPortfolioEntity);
         var resultDto = mapper.Map<UserPortfolioDto>(response);
         return Result<UserPortfolioDto, Error>.Success(resultDto);

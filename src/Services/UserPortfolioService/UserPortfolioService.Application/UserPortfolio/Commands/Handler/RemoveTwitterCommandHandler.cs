@@ -20,10 +20,8 @@ public class RemoveTwitterCommandHandler(
     {
         var userPortfolioEntity = await repository.GetUserPortfolioWithIncludesByUserId(request.userId);
         userPortfolioEntity.EnsureNotNull();
-        var userPortfolio = mapper.Map<Domain.UserPortfolioAggregate.UserPortfolio>(userPortfolioEntity);
-        userPortfolio.RemoveTwitter();
-        userPortfolioEntity = mapper.Map<UserPortfolioEntity>(userPortfolio);
-        await repository.ModifyEntityAsync(userPortfolioEntity);
+        userPortfolioEntity.TwitterEntity = null;
+        await repository.RemoveTwitterUserPortfolio(userPortfolioEntity);
         var userPortFolioDto = mapper.Map<UserPortfolioDto>(userPortfolioEntity);
 
         return Result<UserPortfolioDto, Error>.Success(userPortFolioDto);

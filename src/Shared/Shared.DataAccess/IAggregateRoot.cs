@@ -5,6 +5,7 @@ namespace Shared.DataAccess;
 
 public interface IAggregateRoot
 {
+    public Guid Id { get; set; }
     IReadOnlyCollection<IntegrationEvent> IntegrationEvents { get; }
     IReadOnlyCollection<IntegrationEvent> PopDomainEvents();
     void ClearEvents();
@@ -12,6 +13,7 @@ public interface IAggregateRoot
 
 public abstract class AggregateRoot<T> : IAggregateRoot
 {
+    public Guid Id { get; set; }
     private readonly IList<IntegrationEvent> _events = [];
     public IReadOnlyCollection<IntegrationEvent> IntegrationEvents => _events.AsReadOnly();
 

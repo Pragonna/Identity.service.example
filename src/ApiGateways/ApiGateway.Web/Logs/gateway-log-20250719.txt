@@ -1,0 +1,620 @@
+2025-07-19 21:48:05.001 +04:00 [INF] User profile is available. Using '/Users/emilalizada/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-19 21:48:06.154 +04:00 [INF] Now listening on: https://localhost:7109
+2025-07-19 21:48:06.156 +04:00 [INF] Now listening on: http://localhost:5269
+2025-07-19 21:48:06.164 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-19 21:48:06.165 +04:00 [INF] Hosting environment: Development
+2025-07-19 21:48:06.166 +04:00 [INF] Content root path: /Users/emilalizada/RiderProjects/Microservice.Solution/src/ApiGateways/ApiGateway.Web
+2025-07-19 21:48:07.605 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - null null
+2025-07-19 21:48:08.026 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - 200 null text/html;charset=utf-8 428.4832ms
+2025-07-19 21:48:08.770 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/swagger-ui-bundle.js - null null
+2025-07-19 21:48:08.948 +04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-07-19 21:48:08.950 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 179.0848ms
+2025-07-19 21:48:11.770 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - null null
+2025-07-19 21:48:11.992 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 229.2307ms
+2025-07-19 22:00:32.473 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - null null
+2025-07-19 22:00:32.853 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:32.912 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:00:32.915 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfoli' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:00:32.917 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfoli' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:00:32.919 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:00:32.920 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:00:32.921 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:00:33.160 +04:00 [WRN] RequestId: 0HNE6THLC4AN1:00000001, PreviousRequestId: -
+404 Not Found status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:33.182 +04:00 [INF] Response status: 404
+2025-07-19 22:00:33.184 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - 404 0 null 714.1014ms
+2025-07-19 22:00:33.186 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli, Response status code: 404
+2025-07-19 22:00:40.337 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - null null
+2025-07-19 22:00:40.357 +04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX14100: JWT is not well formed, there are no dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+ ---> Microsoft.IdentityModel.Tokens.SecurityTokenMalformedException: IDX14121: JWT is not a well formed JWE, there are there must be four dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(String encodedJson)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+   --- End of inner exception stack trace ---
+2025-07-19 22:00:40.359 +04:00 [INF] Bearer was not authenticated. Failure message: IDX14100: JWT is not well formed, there are no dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+2025-07-19 22:00:40.361 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:40.363 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:00:40.363 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfoli' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:00:40.363 +04:00 [INF] Bearer was not authenticated. Failure message: IDX14100: JWT is not well formed, there are no dots (.).
+The token needs to be in JWS or JWE Compact Serialization Format. (JWS): 'EncodedHeader.EndcodedPayload.EncodedSignature'. (JWE): 'EncodedProtectedHeader.EncodedEncryptedKey.EncodedInitializationVector.EncodedCiphertext.EncodedAuthenticationTag'.
+2025-07-19 22:00:40.371 +04:00 [WRN] RequestId: 0HNE6THLC4AN1:00000002, PreviousRequestId: -
+Client has NOT been authenticated for path '/service/api/userportfoliomanage/get-userPortfoli' and pipeline error set. UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/get-userPortfoli' was unauthenticated;
+2025-07-19 22:00:40.373 +04:00 [WRN] RequestId: 0HNE6THLC4AN1:00000002, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/get-userPortfoli' was unauthenticated
+Setting error response for request: GET /service/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:40.374 +04:00 [INF] Response status: 401
+2025-07-19 22:00:40.375 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - 401 0 null 38.4797ms
+2025-07-19 22:00:45.693 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - null null
+2025-07-19 22:00:45.711 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:45.712 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:00:45.712 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfoli' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:00:45.712 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfoli' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:00:45.712 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:00:45.713 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:00:45.713 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:00:45.727 +04:00 [WRN] RequestId: 0HNE6THLC4AN1:00000003, PreviousRequestId: -
+404 Not Found status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:45.727 +04:00 [INF] Response status: 404
+2025-07-19 22:00:45.727 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - 404 0 null 34.8091ms
+2025-07-19 22:00:45.728 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli, Response status code: 404
+2025-07-19 22:00:46.840 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - null null
+2025-07-19 22:00:46.844 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:46.845 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:00:46.845 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfoli' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:00:46.845 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfoli' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:00:46.845 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:00:46.845 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:00:46.845 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:00:46.850 +04:00 [WRN] RequestId: 0HNE6THLC4AN1:00000004, PreviousRequestId: -
+404 Not Found status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:46.850 +04:00 [INF] Response status: 404
+2025-07-19 22:00:46.851 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - 404 0 null 11.0338ms
+2025-07-19 22:00:46.852 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli, Response status code: 404
+2025-07-19 22:00:47.699 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - null null
+2025-07-19 22:00:47.702 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:47.703 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:00:47.703 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfoli' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:00:47.703 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfoli' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:00:47.704 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:00:47.704 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:00:47.704 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:00:47.706 +04:00 [WRN] RequestId: 0HNE6THLC4AN1:00000005, PreviousRequestId: -
+404 Not Found status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfoli
+2025-07-19 22:00:47.707 +04:00 [INF] Response status: 404
+2025-07-19 22:00:47.707 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli - 404 0 null 8.0537ms
+2025-07-19 22:00:47.707 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfoli, Response status code: 404
+2025-07-19 22:00:51.453 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - null null
+2025-07-19 22:00:51.474 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:00:51.475 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:00:51.475 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfolio' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:00:51.475 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfolio' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:00:51.475 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:00:51.475 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:00:51.476 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:00:53.201 +04:00 [INF] RequestId: 0HNE6THLC4AN1:00000006, PreviousRequestId: -
+200 OK status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:00:53.204 +04:00 [INF] Response status: 200
+2025-07-19 22:00:53.204 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - 200 null application/json; charset=utf-8 1750.7666ms
+2025-07-19 22:00:53.204 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio, Response status code: 200
+2025-07-19 22:01:52.279 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-image - multipart/form-data; boundary=--------------------------587070067857854430339970 114848
+2025-07-19 22:01:52.307 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-image
+2025-07-19 22:01:52.311 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:01:52.311 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-image' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:01:52.311 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-image' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:01:52.311 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:01:52.311 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:01:52.311 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:01:52.430 +04:00 [WRN] RequestId: 0HNE6THLC4AN3:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-image
+2025-07-19 22:01:52.430 +04:00 [INF] Response status: 500
+2025-07-19 22:01:52.431 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-image - 500 null text/plain; charset=utf-8 151.9108ms
+2025-07-19 22:01:52.431 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-image, Response status code: 500
+2025-07-19 22:02:30.478 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-image - multipart/form-data; boundary=--------------------------846527030677541004851032 114848
+2025-07-19 22:02:30.510 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-image
+2025-07-19 22:02:30.516 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:02:30.517 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-image' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:02:30.517 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-image' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:02:30.518 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:02:30.520 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:02:30.520 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:02:30.559 +04:00 [WRN] RequestId: 0HNE6THLC4AN3:00000002, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-image
+2025-07-19 22:02:30.560 +04:00 [INF] Response status: 500
+2025-07-19 22:02:30.560 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-image - 500 null text/plain; charset=utf-8 82.7474ms
+2025-07-19 22:02:30.560 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-image, Response status code: 500
+2025-07-19 22:02:54.588 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-image - multipart/form-data; boundary=--------------------------971570100424603526423402 114852
+2025-07-19 22:02:54.616 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-image
+2025-07-19 22:02:54.618 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:02:54.618 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-image' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:02:54.618 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-image' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:02:54.618 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:02:54.618 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:02:54.619 +04:00 [INF] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:02:55.261 +04:00 [WRN] RequestId: 0HNE6THLC4AN3:00000003, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-image
+2025-07-19 22:02:55.262 +04:00 [INF] Response status: 500
+2025-07-19 22:02:55.262 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-image - 500 null text/plain; charset=utf-8 674.3128ms
+2025-07-19 22:02:55.262 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-image, Response status code: 500
+2025-07-19 22:06:25.639 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:06:25.699 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:06:25.700 +04:00 [INF] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:06:25.700 +04:00 [INF] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:06:25.701 +04:00 [INF] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:06:25.702 +04:00 [INF] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:06:25.777 +04:00 [INF] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:06:25.777 +04:00 [INF] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:06:25.999 +04:00 [WRN] RequestId: 0HNE6THLC4AN5:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:06:26.000 +04:00 [INF] Response status: 500
+2025-07-19 22:06:26.000 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 361.3892ms
+2025-07-19 22:06:26.000 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:13:07.303 +04:00 [INF] Application is shutting down...
+2025-07-19 22:17:08.976 +04:00 [INF] User profile is available. Using '/Users/emilalizada/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-19 22:17:09.386 +04:00 [INF] Now listening on: https://localhost:7109
+2025-07-19 22:17:09.387 +04:00 [INF] Now listening on: http://localhost:5269
+2025-07-19 22:17:09.389 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-19 22:17:09.390 +04:00 [INF] Hosting environment: Development
+2025-07-19 22:17:09.390 +04:00 [INF] Content root path: /Users/emilalizada/RiderProjects/Microservice.Solution/src/ApiGateways/ApiGateway.Web
+2025-07-19 22:17:47.224 +04:00 [INF] User profile is available. Using '/Users/emilalizada/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-19 22:17:47.825 +04:00 [INF] Now listening on: https://localhost:7109
+2025-07-19 22:17:47.826 +04:00 [INF] Now listening on: http://localhost:5269
+2025-07-19 22:17:47.828 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-19 22:17:47.828 +04:00 [INF] Hosting environment: Development
+2025-07-19 22:17:47.828 +04:00 [INF] Content root path: /Users/emilalizada/RiderProjects/Microservice.Solution/src/ApiGateways/ApiGateway.Web
+2025-07-19 22:17:48.480 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - null null
+2025-07-19 22:17:48.957 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - 200 null text/html;charset=utf-8 477.0485ms
+2025-07-19 22:17:51.332 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - null null
+2025-07-19 22:17:51.528 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 198.1994ms
+2025-07-19 22:18:14.507 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:18:14.795 +04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:14:34', Current time (UTC): '19.07.2025 18:18:14'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-19 22:18:14.800 +04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:14:34', Current time (UTC): '19.07.2025 18:18:14'.
+2025-07-19 22:18:14.808 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:18:14.856 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:18:14.860 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:18:14.861 +04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:14:34', Current time (UTC): '19.07.2025 18:18:14'.
+2025-07-19 22:18:14.864 +04:00 [WRN] RequestId: 0HNE6U28BNN30:00000001, PreviousRequestId: -
+Client has NOT been authenticated for path '/service/api/userportfoliomanage/add-wallet' and pipeline error set. UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/add-wallet' was unauthenticated;
+2025-07-19 22:18:14.866 +04:00 [WRN] RequestId: 0HNE6U28BNN30:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/add-wallet' was unauthenticated
+Setting error response for request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:18:14.869 +04:00 [INF] Response status: 401
+2025-07-19 22:18:14.871 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 401 0 null 371.7244ms
+2025-07-19 22:18:42.578 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:18:42.626 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:18:42.627 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:18:42.627 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:18:42.628 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:18:42.631 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:18:42.632 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:18:42.634 +04:00 [INF] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:18:44.530 +04:00 [WRN] RequestId: 0HNE6U28BNN30:00000002, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:18:44.546 +04:00 [INF] Response status: 500
+2025-07-19 22:18:44.547 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 1973.4317ms
+2025-07-19 22:18:44.548 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:20:43.716 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:20:43.900 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:20:43.908 +04:00 [INF] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:20:43.909 +04:00 [INF] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:20:43.909 +04:00 [INF] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:20:43.909 +04:00 [INF] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:20:43.909 +04:00 [INF] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:20:43.910 +04:00 [INF] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:20:46.587 +04:00 [WRN] RequestId: 0HNE6U28BNN32:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:20:46.591 +04:00 [INF] Response status: 500
+2025-07-19 22:20:46.592 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 2879.117ms
+2025-07-19 22:20:46.593 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:23:03.805 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:23:03.962 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:23:03.964 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:23:03.964 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:23:03.964 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:23:03.964 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:23:03.964 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:23:03.966 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:24:34.011 +04:00 [INF] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+102 unknown status code of request URI: 
+2025-07-19 22:24:34.020 +04:00 [WRN] RequestId: 0HNE6U28BNN34:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+RequestTimedOutError: Timeout making http request, exception: System.TimeoutException: The operation has timed out.
+   at Ocelot.Requester.TimeoutDelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Ocelot.Requester.MessageInvokerHttpRequester.GetResponse(HttpContext httpContext)
+Setting error response for request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:24:34.027 +04:00 [INF] Response status: 503
+2025-07-19 22:24:34.032 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 503 0 null 90231.7766ms
+2025-07-19 22:25:02.189 +04:00 [INF] Application is shutting down...
+2025-07-19 22:26:15.800 +04:00 [INF] User profile is available. Using '/Users/emilalizada/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-19 22:26:16.454 +04:00 [INF] Now listening on: https://localhost:7109
+2025-07-19 22:26:16.456 +04:00 [INF] Now listening on: http://localhost:5269
+2025-07-19 22:26:16.463 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-19 22:26:16.465 +04:00 [INF] Hosting environment: Development
+2025-07-19 22:26:16.465 +04:00 [INF] Content root path: /Users/emilalizada/RiderProjects/Microservice.Solution/src/ApiGateways/ApiGateway.Web
+2025-07-19 22:26:17.478 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - null null
+2025-07-19 22:26:17.742 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - 200 null text/html;charset=utf-8 266.5287ms
+2025-07-19 22:26:21.875 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - null null
+2025-07-19 22:26:22.168 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 298.5722ms
+2025-07-19 22:26:32.210 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:26:32.794 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:26:32.897 +04:00 [INF] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:26:32.903 +04:00 [INF] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:26:32.905 +04:00 [INF] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:26:32.908 +04:00 [INF] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:26:32.909 +04:00 [INF] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:26:32.910 +04:00 [INF] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:26:36.549 +04:00 [WRN] RequestId: 0HNE6U6VU7SN3:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:26:36.597 +04:00 [INF] Response status: 500
+2025-07-19 22:26:36.599 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 4389.8018ms
+2025-07-19 22:26:36.600 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:27:53.693 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:27:53.998 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:27:54.009 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:27:54.010 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:27:54.010 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:27:54.010 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:27:54.011 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:27:54.011 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:27:54.833 +04:00 [WRN] RequestId: 0HNE6U6VU7SN5:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:27:54.849 +04:00 [INF] Response status: 500
+2025-07-19 22:27:54.859 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 1167.843ms
+2025-07-19 22:27:54.860 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:28:41.679 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:28:41.870 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:28:41.875 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:28:41.875 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:28:41.875 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:28:41.875 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:28:41.876 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:28:41.876 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:30:11.927 +04:00 [INF] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+102 unknown status code of request URI: 
+2025-07-19 22:30:11.962 +04:00 [WRN] RequestId: 0HNE6U6VU7SN5:00000002, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+RequestTimedOutError: Timeout making http request, exception: System.TimeoutException: The operation has timed out.
+   at Ocelot.Requester.TimeoutDelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Ocelot.Requester.MessageInvokerHttpRequester.GetResponse(HttpContext httpContext)
+Setting error response for request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:30:11.969 +04:00 [INF] Response status: 503
+2025-07-19 22:30:11.973 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 503 0 null 90314.418ms
+2025-07-19 22:32:10.555 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:32:10.648 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:32:10.652 +04:00 [INF] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:32:10.653 +04:00 [INF] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:32:10.653 +04:00 [INF] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:32:10.653 +04:00 [INF] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:32:10.653 +04:00 [INF] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:32:10.653 +04:00 [INF] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:33:13.130 +04:00 [WRN] RequestId: 0HNE6U6VU7SN7:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:33:13.144 +04:00 [INF] Response status: 500
+2025-07-19 22:33:13.145 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 62627.6273ms
+2025-07-19 22:33:13.147 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:34:03.393 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:34:03.492 +04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:33:26', Current time (UTC): '19.07.2025 18:34:03'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-19 22:34:03.499 +04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:33:26', Current time (UTC): '19.07.2025 18:34:03'.
+2025-07-19 22:34:03.500 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:34:03.504 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:34:03.505 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:34:03.505 +04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:33:26', Current time (UTC): '19.07.2025 18:34:03'.
+2025-07-19 22:34:03.509 +04:00 [WRN] RequestId: 0HNE6U6VU7SN9:00000001, PreviousRequestId: -
+Client has NOT been authenticated for path '/service/api/userportfoliomanage/add-wallet' and pipeline error set. UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/add-wallet' was unauthenticated;
+2025-07-19 22:34:03.509 +04:00 [WRN] RequestId: 0HNE6U6VU7SN9:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/add-wallet' was unauthenticated
+Setting error response for request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:34:03.509 +04:00 [INF] Response status: 401
+2025-07-19 22:34:03.509 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 401 0 null 116.9584ms
+2025-07-19 22:34:34.287 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:34:34.307 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:34:34.310 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:34:34.310 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:34:34.310 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:34:34.310 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:34:34.311 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:34:34.311 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:35:18.042 +04:00 [INF] Application is shutting down...
+2025-07-19 22:35:18.124 +04:00 [INF] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+102 unknown status code of request URI: 
+2025-07-19 22:35:18.125 +04:00 [WRN] RequestId: 0HNE6U6VU7SN9:00000002, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+ConnectionToDownstreamServiceError: Error connecting to downstream service, exception: System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.Net.Http.HttpIOException: The response ended prematurely. (ResponseEnded)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Ocelot.Requester.TimeoutDelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Ocelot.Requester.MessageInvokerHttpRequester.GetResponse(HttpContext httpContext)
+Setting error response for request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:35:18.127 +04:00 [INF] Response status: 502
+2025-07-19 22:35:18.128 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 502 0 null 43842.512ms
+2025-07-19 22:38:17.573 +04:00 [INF] User profile is available. Using '/Users/emilalizada/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-07-19 22:38:18.153 +04:00 [INF] Now listening on: https://localhost:7109
+2025-07-19 22:38:18.154 +04:00 [INF] Now listening on: http://localhost:5269
+2025-07-19 22:38:18.156 +04:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-19 22:38:18.157 +04:00 [INF] Hosting environment: Development
+2025-07-19 22:38:18.157 +04:00 [INF] Content root path: /Users/emilalizada/RiderProjects/Microservice.Solution/src/ApiGateways/ApiGateway.Web
+2025-07-19 22:38:20.974 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:38:21.451 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:38:21.502 +04:00 [INF] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:38:21.507 +04:00 [INF] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:38:21.509 +04:00 [INF] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:38:21.513 +04:00 [INF] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:38:21.514 +04:00 [INF] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:38:21.515 +04:00 [INF] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:38:22.114 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/index.html - null null
+2025-07-19 22:38:22.227 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/index.html - 200 null text/html;charset=utf-8 111.541ms
+2025-07-19 22:38:25.137 +04:00 [INF] Request starting HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - null null
+2025-07-19 22:38:25.262 +04:00 [INF] Request finished HTTP/2 GET https://localhost:7109/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 152.9687ms
+2025-07-19 22:39:12.719 +04:00 [WRN] RequestId: 0HNE6UDNQ8PB0:00000001, PreviousRequestId: -
+500 Internal Server Error status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:39:12.840 +04:00 [INF] Response status: 500
+2025-07-19 22:39:12.848 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 500 null text/plain; charset=utf-8 51875.5874ms
+2025-07-19 22:39:12.850 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 500
+2025-07-19 22:45:11.657 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:45:12.008 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:45:12.016 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:45:12.016 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:45:12.016 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:45:12.016 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:45:12.016 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:45:12.017 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:46:06.347 +04:00 [INF] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+102 unknown status code of request URI: 
+2025-07-19 22:46:06.360 +04:00 [WRN] RequestId: 0HNE6UDNQ8PB3:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+ConnectionToDownstreamServiceError: Error connecting to downstream service, exception: System.Net.Http.HttpRequestException: An error occurred while sending the request.
+ ---> System.Net.Http.HttpIOException: The response ended prematurely. (ResponseEnded)
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpConnection.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Ocelot.Requester.TimeoutDelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at Ocelot.Requester.MessageInvokerHttpRequester.GetResponse(HttpContext httpContext)
+Setting error response for request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:46:06.374 +04:00 [INF] Response status: 502
+2025-07-19 22:46:06.381 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 502 0 null 54725.6825ms
+2025-07-19 22:46:46.927 +04:00 [INF] Request starting HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - application/json 212
+2025-07-19 22:46:47.478 +04:00 [INF] Incoming request: POST /service/api/userportfoliomanage/add-wallet
+2025-07-19 22:46:47.481 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:46:47.482 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/add-wallet' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:46:47.482 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/add-wallet' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:46:47.482 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:46:47.482 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:46:47.482 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:47:12.235 +04:00 [INF] RequestId: 0HNE6UDNQ8PB5:00000001, PreviousRequestId: -
+200 OK status code of request URI: https://localhost:7042/api/userportfoliomanage/add-wallet
+2025-07-19 22:47:12.258 +04:00 [INF] Response status: 200
+2025-07-19 22:47:12.261 +04:00 [INF] Request finished HTTP/1.1 POST https://localhost:7109/service/api/userportfoliomanage/add-wallet - 200 null application/json; charset=utf-8 25336.6789ms
+2025-07-19 22:47:12.264 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:7109/service/api/userportfoliomanage/add-wallet, Response status code: 200
+2025-07-19 22:48:06.153 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - null null
+2025-07-19 22:48:06.170 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:48:06.176 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:48:06.180 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfolio' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:48:06.187 +04:00 [WRN] RequestId: 0HNE6UDNQ8PB7:00000001, PreviousRequestId: -
+Client has NOT been authenticated for path '/service/api/userportfoliomanage/get-userPortfolio' and pipeline error set. UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/get-userPortfolio' was unauthenticated;
+2025-07-19 22:48:06.188 +04:00 [WRN] RequestId: 0HNE6UDNQ8PB7:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/get-userPortfolio' was unauthenticated
+Setting error response for request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:48:06.191 +04:00 [INF] Response status: 401
+2025-07-19 22:48:06.192 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - 401 0 null 39.1735ms
+2025-07-19 22:48:13.804 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - null null
+2025-07-19 22:48:14.138 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:48:14.139 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:48:14.139 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfolio' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:48:14.139 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfolio' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:48:14.139 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:48:14.139 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:48:14.139 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:48:22.403 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000002, PreviousRequestId: -
+200 OK status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:48:22.406 +04:00 [INF] Response status: 200
+2025-07-19 22:48:22.407 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - 200 null application/json; charset=utf-8 8603.1704ms
+2025-07-19 22:48:22.407 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio, Response status code: 200
+2025-07-19 22:48:41.220 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - null null
+2025-07-19 22:48:41.308 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:48:41.310 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:48:41.310 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfolio' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:48:41.310 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfolio' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:48:41.310 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:48:41.310 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:48:41.310 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}
+2025-07-19 22:49:41.336 +04:00 [INF] RequestId: 0HNE6UDNQ8PB7:00000003, PreviousRequestId: -
+200 OK status code of request URI: https://localhost:7042/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:49:41.373 +04:00 [INF] Response status: 200
+2025-07-19 22:49:41.374 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - 200 null application/json; charset=utf-8 60155.9501ms
+2025-07-19 22:49:41.375 +04:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio, Response status code: 200
+2025-07-19 22:49:44.091 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - null null
+2025-07-19 22:49:44.219 +04:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:49:22', Current time (UTC): '19.07.2025 18:49:44'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-19 22:49:44.234 +04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:49:22', Current time (UTC): '19.07.2025 18:49:44'.
+2025-07-19 22:49:44.234 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:49:44.234 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000001, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:49:44.234 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000001, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfolio' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:49:44.235 +04:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '19.07.2025 18:49:22', Current time (UTC): '19.07.2025 18:49:44'.
+2025-07-19 22:49:44.235 +04:00 [WRN] RequestId: 0HNE6UDNQ8PB9:00000001, PreviousRequestId: -
+Client has NOT been authenticated for path '/service/api/userportfoliomanage/get-userPortfolio' and pipeline error set. UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/get-userPortfolio' was unauthenticated;
+2025-07-19 22:49:44.235 +04:00 [WRN] RequestId: 0HNE6UDNQ8PB9:00000001, PreviousRequestId: -
+ResponderMiddleware found 1 error ->
+UnauthenticatedError: Request for authenticated route '/service/api/userportfoliomanage/get-userPortfolio' was unauthenticated
+Setting error response for request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:49:44.235 +04:00 [INF] Response status: 401
+2025-07-19 22:49:44.235 +04:00 [INF] Request finished HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - 401 0 null 144.4128ms
+2025-07-19 22:50:31.175 +04:00 [INF] Request starting HTTP/1.1 GET https://localhost:7109/service/api/userportfoliomanage/get-userPortfolio - null null
+2025-07-19 22:50:31.343 +04:00 [INF] Incoming request: GET /service/api/userportfoliomanage/get-userPortfolio
+2025-07-19 22:50:31.346 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000002, PreviousRequestId: -
+EnableEndpointEndpointRateLimiting is not enabled for downstream path: /api/{everything}
+2025-07-19 22:50:31.346 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000002, PreviousRequestId: -
+The path '/service/api/userportfoliomanage/get-userPortfolio' is an authenticated route! AuthenticationMiddleware checking if client is authenticated...
+2025-07-19 22:50:31.346 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000002, PreviousRequestId: -
+Client has been authenticated for path '/service/api/userportfoliomanage/get-userPortfolio' by 'AuthenticationTypes.Federation' scheme.
+2025-07-19 22:50:31.346 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000002, PreviousRequestId: -
+route is authenticated scopes must be checked
+2025-07-19 22:50:31.346 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000002, PreviousRequestId: -
+user scopes is authorized calling next authorization checks
+2025-07-19 22:50:31.346 +04:00 [INF] RequestId: 0HNE6UDNQ8PB9:00000002, PreviousRequestId: -
+No authorization needed for upstream path: /service/api/{everything}

@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using UserPortfolioService.Domain.Entities;
-using UserPortfolioService.Domain.UserPortfolioAggregate;
 
 namespace UserPortfolioService.Infrastructure.Persistence.Configurations;
 
